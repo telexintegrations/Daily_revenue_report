@@ -1,27 +1,27 @@
-import express, { Request, Response } from "express";
-import dotenv from "dotenv";
+import express from "express";
+import "dotenv/config";
+import "express-async-errors";
 import cors from "cors";
-import { IntergrationSettings } from "./constants/IntegrationSettings";
-
-dotenv.config();
+import { IntegrationJsonRouter } from "./routes/integrationRoutes";
+import { TickRouter } from "./routes/TickRoutes";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-// Middleware
+const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
-// Basic Route
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, TypeScript with Express!");
+app.get("/", (req, res) => {
+  res.send("Hello, Telex integration ");
 });
 
-app.get("/integrationjson", (req: Request, res: Response) => {
-  res.json(IntergrationSettings);
-});
+app.use("/", IntegrationJsonRouter);
+app.use("/", TickRouter);
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+const start = () => {
+  app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
+  });
+};
+
+start();
