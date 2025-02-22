@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { config } from "../config/env";
 
 async function getTelexIntegrationJson(req: Request, res: Response) {
   const baseUrl = `${req.protocol}://${req.get("host")}`;
@@ -40,8 +41,7 @@ async function getTelexIntegrationJson(req: Request, res: Response) {
           default: "* * * * *",
         },
       ],
-      target_url:
-        "https://ping.telex.im/v1/webhooks/01952256-033d-7cd7-9999-10143cddcdee",
+      target_url: config.TELEX_WEBHOOK_URL,
       tick_url: `${baseUrl}/tick`,
     },
   });

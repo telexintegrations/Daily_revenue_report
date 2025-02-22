@@ -6,4 +6,5 @@ export const config = {
   PORT: process.env.PORT || "5000",
   TELEX_WEBHOOK_URL: process.env.TELEX_WEBHOOK_URL || "",
   REVENUE_API_URL: process.env.REVENUE_API_URL || "",
+  STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY || "",
 };
