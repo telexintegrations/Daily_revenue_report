@@ -1,4 +1,5 @@
 import axios from "axios";
+import { config } from "../config/env";
 
 async function fetchStripeRevenue() {
   try {
@@ -13,7 +14,7 @@ async function fetchStripeRevenue() {
     const response = await axios.get(
       "https://api.stripe.com/v1/balance_transactions",
       {
-        headers: { Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}` },
+        headers: { Authorization: `Bearer ${config.STRIPE_SECRET_KEY}` },
         params: {
           created: {
             gte: startOfDay, // Start of the day in seconds
