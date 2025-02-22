@@ -16,15 +16,28 @@ async function getTelexIntegrationJson(req: Request, res: Response) {
         background_color: "#fff",
       },
       is_acctive: true,
-      author: "Nwachukwu goodness",
       integration_type: "interval",
+      key_features: [
+        "Fetches revenue data from  Stripe API",
+        "Sends daily report to Telex",
+        "Automated and scheduled execution",
+        "Configurable reporting interval",
+      ],
+      integration_category: "Finance & Payments",
+      author: "Nwachukwu goodness",
+      permissions: {
+        monitoring_user: {
+          always_online: true,
+          display_name: "Revenue Report",
+        },
+      },
       settings: [
         { label: "platform", type: "text", required: true, default: "stripe" },
         {
           label: "interval",
           type: "text",
           required: true,
-          default: "0 0 * * *",
+          default: "* * * * *",
         },
       ],
       target_url:

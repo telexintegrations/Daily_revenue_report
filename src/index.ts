@@ -1,6 +1,7 @@
 import express from "express";
 import "dotenv/config";
 import "express-async-errors";
+import cron from "node-cron";
 import cors from "cors";
 import { IntegrationJsonRouter } from "./routes/integrationRoutes";
 import { TickRouter } from "./routes/TickRoutes";
