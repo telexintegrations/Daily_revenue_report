@@ -16,7 +16,7 @@ async function getTelexIntegrationJson(req: Request, res: Response) {
         app_logo: "https://cdn-icons-png.flaticon.com/128/15178/15178455.png",
         background_color: "#fff",
       },
-      is_acctive: true,
+      is_active: true,
       integration_type: "interval",
       key_features: [
         "Fetches revenue data from  Stripe API",
@@ -38,7 +38,7 @@ async function getTelexIntegrationJson(req: Request, res: Response) {
           label: "interval",
           type: "text",
           required: true,
-          default: "* * * * *",
+          default: "*/3 * * * *",
         },
       ],
       target_url: config.TELEX_WEBHOOK_URL,
