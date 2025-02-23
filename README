@@ -73,7 +73,7 @@ The integration exposes the `/integration.json` endpoint, which Telex uses to un
         "app_logo": "https://cdn-icons-png.flaticon.com/128/15178/15178455.png",
        "background_color": "#fff",
       },
-      "is_acctive": true,
+      "is_active": true,
       "author": "Nwachukwu goodness",
       "integration_type": "interval",
      "settings": [
@@ -82,7 +82,7 @@ The integration exposes the `/integration.json` endpoint, which Telex uses to un
           "label": "interval",
           "type": "text",
           "required": true,
-         " default": "0 0 * * *",
+         " default":"*/3 * * * *",
         },
       ],
      "target_url":
